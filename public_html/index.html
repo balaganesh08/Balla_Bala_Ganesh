@@ -796,6 +796,22 @@
 
     <!-- JohnDoe js -->
     <script src="assets/js/johndoe.js"></script>
+	<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get form data
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+
+        // Construct WhatsApp URL
+        var url = 'https://api.whatsapp.com/send/?phone=918309411250&text=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nMessage: ' + message) + '&type=phone_number&app_absent=0';
+
+        // Redirect to WhatsApp
+        window.location.href = url;
+    });
+</script>
 
 </body>
 </html>
