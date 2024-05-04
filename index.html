@@ -726,7 +726,7 @@
                 <div class="col-lg-8">
                     <div class="contact-form-card">
                         <h4 class="contact-title">Send a message</h4>
-                        <form action="">
+                        <form action="" id="contactForm">
                             <div class="form-group">
                                 <input  class="form-control" type="text" placeholder="Name *" required>
                             </div>
@@ -789,7 +789,22 @@
             </p>
         </div>
     </footer>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
+        // Get form data
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+
+        // Construct WhatsApp URL
+        var url = 'https://api.whatsapp.com/send/?phone=918309411250&text=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nMessage: ' + message) + '&type=phone_number&app_absent=0';
+
+        // Redirect to WhatsApp
+        window.location.href = url;
+    });
+</script>
 	<!-- core  -->
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
     <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
